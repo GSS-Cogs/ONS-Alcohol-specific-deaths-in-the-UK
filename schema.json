@@ -1,0 +1,82 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw", {"@language": "en"}],
+  "tables": [
+    {
+      "url": "https://ons-opendata.github.io/ref_common/codelists/age-groups.csv",
+      "tableSchema": "https://ons-opendata.github.io/ref_common/codelist-schema.json"
+    }, {
+      "url": "https://ons-opendata.github.io/ref_common/codelists/measurement-units.csv",
+      "tableSchema": "https://ons-opendata.github.io/ref_common/codelist-schema.json"
+    }, {
+    "url": "out/observations.csv",
+      "tableSchema": {
+        "columns": [{
+          "titles": "Age",
+          "name": "age",
+          "required": true
+        }, {
+          "titles": "Geography",
+          "name": "geography",
+          "datatype": {
+            "format": "^[A-Z][0-9]{8}$"
+          },
+          "required": true
+        }, {
+          "titles": "CI Lower",
+          "name": "ci_lower",
+          "datatype": "number"
+        }, {
+          "titles": "Measure Type",
+          "name": "measure_type",
+          "datatype": {
+            "format": "^count|rate-per-100-000-persons$"
+          },
+          "required": true
+        }, {
+          "titles": "Sex",
+          "name": "sex",
+          "datatype": {
+            "format": "^T|M|F$"
+          },
+          "required": true
+        }, {
+          "titles": "Unit",
+          "name": "unit",
+          "datatype": {
+            "format": "^deaths$"
+          },
+          "required": true
+        }, {
+          "titles": "CI Upper",
+          "name": "ci_upper",
+          "datatype": "number"
+        }, {
+          "titles": "Value",
+          "name": "value",
+          "required": false
+        }, {
+          "titles": "Year",
+          "name": "year",
+          "datatype": "number",
+          "required": true
+        }],
+        "foreignKeys": [{
+          "columnReference": "age",
+          "reference": {
+            "resource": "https://ons-opendata.github.io/ref_common/codelists/age-groups.csv",
+            "columnReference": "notation"
+          }
+        }, {
+          "columnReference": "unit",
+          "reference": {
+            "resource": "https://ons-opendata.github.io/ref_common/codelists/measurement-units.csv",
+            "columnReference": "notation"
+          }
+        }],
+        "primaryKey": [
+          "Age", "Geography", "Measure Type", "Value", "Unit", "Year"
+        ]
+      }
+    }
+  ]
+}

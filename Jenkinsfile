@@ -28,8 +28,9 @@ pipeline {
             }
             steps {
                 script {
-                    error "Needs review"
-                    sh "csvlint -s schema.json"
+                    ansiColor('xterm') {
+                        sh "csvlint -s schema.json"
+                    }
                 }
             }
         }
