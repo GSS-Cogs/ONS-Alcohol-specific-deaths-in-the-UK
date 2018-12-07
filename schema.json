@@ -53,6 +53,7 @@
         }, {
           "titles": "Value",
           "name": "value",
+          "datatype": "number",
           "required": false
         }, {
           "titles": "Year",
@@ -74,7 +75,7 @@
           }
         }],
         "primaryKey": [
-          "Age", "Geography", "Measure Type", "Value", "Unit", "Year"
+          "age", "geography", "measure_type", "sex", "unit", "year"
         ]
       }
     }
