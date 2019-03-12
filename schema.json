@@ -28,6 +28,9 @@
         }, {
           "titles": "Measure Type",
           "name": "measure_type",
+          "datatype": {
+            "format": "^Count$|^Rate per 100,000 persons$"
+          },
           "required": true
         }, {
           "titles": "Sex",
