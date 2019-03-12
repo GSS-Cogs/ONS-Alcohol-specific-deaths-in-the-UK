@@ -28,9 +28,6 @@
         }, {
           "titles": "Measure Type",
           "name": "measure_type",
-          "datatype": {
-            "format": "^count|rate-per-100-000-persons$"
-          },
           "required": true
         }, {
           "titles": "Sex",
@@ -42,9 +39,6 @@
         }, {
           "titles": "Unit",
           "name": "unit",
-          "datatype": {
-            "format": "^deaths$"
-          },
           "required": true
         }, {
           "titles": "CI Upper",
